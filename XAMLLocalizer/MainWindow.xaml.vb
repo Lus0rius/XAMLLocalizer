@@ -1,20 +1,12 @@
 ﻿Imports System.IO
 Imports System.Environment
 Imports System.Xml
-Imports System.Xml.Linq
-Imports System.Collections.Generic
 Imports System.Text
 Imports System.Text.RegularExpressions
-Imports System.Linq
-Imports System.Net
-Imports System.Reflection
-Imports System.Security.AccessControl
 Imports <xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 Imports <xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 Imports <xmlns:system="clr-namespace:System;assembly=mscorlib">
-Imports XAMLLocalizer.MainWindow
 Imports System.Windows.Threading
-Imports System.Formats.Asn1.AsnWriter
 
 Class MainWindow
     Dim mainfile As String = ""
@@ -40,10 +32,8 @@ Class MainWindow
         ' Cet appel est requis par le concepteur.
         InitializeComponent()
 
-        BindingOperations.EnableCollectionSynchronization(xmlitems, XMLList)
-
         ' Ajoutez une initialisation quelconque après l'appel InitializeComponent().
-
+        BindingOperations.EnableCollectionSynchronization(xmlitems, XMLList)
     End Sub
 
 
@@ -461,13 +451,6 @@ Class MainWindow
         End If
     End Sub
 
-    Friend Class Xitem
-        Public Property Element As String = String.Empty
-        Public Property English As String = String.Empty
-        Public Property French As String = String.Empty
-        Public Property German As String = String.Empty
-    End Class
-
     Private Sub XMLList_KeyDown(sender As Object, e As KeyEventArgs) Handles XMLList.KeyDown
         If e.Key = Key.Z And (Keyboard.IsKeyDown(Key.LeftCtrl) Or Keyboard.IsKeyDown(Key.RightCtrl)) Then
             UndoRemove()
@@ -528,6 +511,13 @@ Class MainWindow
             Process.Start("explorer.exe", "/select,""" & mainfile & """")
         End If
     End Sub
+End Class
+
+Friend Class Xitem
+    Public Property Element As String = String.Empty
+    Public Property English As String = String.Empty
+    Public Property French As String = String.Empty
+    Public Property German As String = String.Empty
 End Class
 
 Module VisualTreeHelperExtensions
