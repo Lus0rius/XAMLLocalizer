@@ -1,0 +1,19 @@
+<ResourceDictionary xmlns:system="clr-namespace:System;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<system:String x:Key="loc_RouteMerger">Fusion d'itinéraires</system:String>
+	<system:String x:Key="loc_Settings">Paramètres</system:String>
+	<system:String x:Key="loc_Theme">Thème</system:String>
+	<system:String x:Key="loc_Theme_Computer">Automatique</system:String>
+	<system:String x:Key="loc_Theme_Dark">Sombre</system:String>
+	<system:String x:Key="loc_Theme_Light">Clair</system:String>
+	<system:String x:Key="loc_About">À propos</system:String>
+	<system:String x:Key="loc_File_OpenTSDir">Ouvrir le répertoire de TS</system:String>
+	<system:String x:Key="loc_FileExplorer">Explorateur</system:String>
+	<system:String x:Key="loc_Language">Langue</system:String>
+	<system:String x:Key="loc_Maps">Cartes</system:String>
+	<system:String x:Key="loc_Refresh">Rafraîchir</system:String>
+	<system:String x:Key="loc_RouteAnalyzer">Analyse d'itinéraire</system:String>
+	<system:String x:Key="loc_File_OpenLogs">Ouvrir le répertoire des logs</system:String>
+	<system:String x:Key="loc_File_ChangeTSDir">Modifier le répertoire de TS</system:String>
+	<system:String x:Key="loc_File">Fichier</system:String>
+	<system:String x:Key="loc_AssetSwapper">Swap d'assets</system:String>
+</ResourceDictionary>

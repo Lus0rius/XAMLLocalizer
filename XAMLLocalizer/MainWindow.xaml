@@ -1,0 +1,117 @@
+﻿<Window x:Class="MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:XAMLLocalizer"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="ListViewItem">
+            <Style.Triggers>
+                <Trigger Property="ItemsControl.AlternationIndex"  Value="0">
+                    <Setter Property="Background" Value="AliceBlue"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    <Setter Property="VerticalContentAlignment" Value="Stretch" />
+                </Trigger>
+                <Trigger Property="ItemsControl.AlternationIndex"  Value="1">
+                    <Setter Property="Background" Value="White" />
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    <Setter Property="VerticalContentAlignment" Value="Stretch" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="{x:Null}"/>
+            <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="AcceptsReturn" Value="True" />
+            <Setter Property="Margin" Value="-6,-3,-6,-3"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="MinHeight" Value="25"/>
+        </Style>
+    </Window.Resources>
+    <Window.InputBindings>
+
+    </Window.InputBindings>
+
+    <Grid>
+        <Menu Width="Auto" Height="22" VerticalAlignment="Top" FontSize="14">
+            <MenuItem x:Name="OpenButton" Header="Open"/>
+
+            <MenuItem x:Name="ReloadButton" Header="Reload"/>
+            <MenuItem x:Name="SaveButton" Header="Save"/>
+            <MenuItem x:Name="SaveAsButton" Header="Save as..."/>
+            <MenuItem x:Name="UndoButton" Header="Undo"/>
+            <MenuItem Width="50" IsEnabled="False"/>
+            <MenuItem x:Name="OpenDirButton" Header="Open directory"/>
+            <MenuItem x:Name="CountButton" Header="Count words"/>
+            <MenuItem x:Name="SpacesButton" Header="Display spaces"/>
+        </Menu>
+
+        <Grid Margin="0,35,30,22">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="2*" MaxWidth="200"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" x:Name="FieldX"/>
+            <Grid Grid.Column="1" x:Name="Field0"/>
+            <Grid Grid.Column="2" x:Name="Field1"/>
+            <Grid Grid.Column="3" x:Name="Field2"/>
+            <Grid Grid.Column="4" x:Name="Field3"/>
+        </Grid>
+
+        <ListView x:Name="XMLList" AlternationCount="2" Margin="0,22,0,22">
+            <ListView.View>
+                <GridView x:Name="XMLGrid">
+                    <GridViewColumn Width="{Binding ElementName=FieldX, Path=ActualWidth}">
+                        <GridViewColumnHeader/>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="X" Click="DeleteRow"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Width="{Binding ElementName=Field0, Path=ActualWidth}">
+                        <GridViewColumnHeader Content="Element"/>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Text="{Binding Element}" TextChanged="TextBox_TextChanged" GotFocus="TextBox_GotFocus" Foreground="DarkBlue"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Width="{Binding ElementName=Field1, Path=ActualWidth}">
+                        <GridViewColumnHeader Content="English"/>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Text="{Binding English}" TextChanged="TextBox_TextChanged" GotFocus="TextBox_GotFocus"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Width="{Binding ElementName=Field2, Path=ActualWidth}">
+                        <GridViewColumnHeader Content="Français"/>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Text="{Binding French}" TextChanged="TextBox_TextChanged" GotFocus="TextBox_GotFocus"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Width="{Binding ElementName=Field3, Path=ActualWidth}">
+                        <GridViewColumnHeader Content="Deutsch"/>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Text="{Binding German}" TextChanged="TextBox_TextChanged" GotFocus="TextBox_GotFocus"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBox x:Name="InvisibleTextBox" HorizontalAlignment="Left" Margin="-135,57,0,0" VerticalAlignment="Top" Width="90" MaxLines="1"/>
+        <Button Content="Add" Name="AddButton" VerticalAlignment="Bottom" Height="22" Margin="0,0,100,0"/>
+        <Label Name="DuplicatesLabel" Content="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="30"/>
+        <Label Content="Duplicates:" HorizontalAlignment="Right" Margin="0,0,30,0" VerticalAlignment="Bottom" Width="70"/>
+    </Grid>
+</Window>
